@@ -1,0 +1,28 @@
+<app-wrapper maxWidth="800px">
+  <div class="main">
+    <div class="title">
+      Samochody
+    </div>
+
+    <div class="wrapper">
+      <mat-form-field>
+        <mat-label>
+          Nazwa samochodu
+        </mat-label>
+        <input type="text" autocomplete="off" [formControl]="carNameControl" matInput>
+        <mat-error *ngIf="carNameControl.hasError('required') && carNameControl.touched">
+          Nazwa samochodu nie może być pusta
+        </mat-error>
+      </mat-form-field>
+      <button (click)="addCar()" mat-icon-button matTooltip="Dodaj samochód">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="list">
+      <app-car-list-item *ngFor="let car of carService.cars" [car]="car"></app-car-list-item>
+    </div>
+
+  </div>
+</app-wrapper>
+

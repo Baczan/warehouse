@@ -1,0 +1,82 @@
+.main{
+  height: 100%;
+  padding: 16px 32px 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: rgba(0,0,0,0.8);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.searchWrapper{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 32px 8px;
+}
+
+.searchWrapper > mat-form-field{
+  flex: 1;
+  font-size: 16px;
+  padding-right: 48px;
+}
+
+::ng-deep .searchWrapper .mat-form-field-infix{
+  width: 120px !important;
+}
+
+.labelWrapper{
+  flex: 1;
+  padding-top: 8px;
+}
+
+.empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: rgba(0,0,0,0.7);
+}
+
+.error{
+  color: #ce3651;
+}
+
+form > mat-form-field{
+  width: 100%;
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+.buttonWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding-bottom: 32px;
+}
+
+.buttonWrapper > button{
+  width: 85px;
+  margin-left: 48px;
+  margin-top: 32px;
+}
+
+.buttonWrapper > button:first-child{
+  margin-left: 0;
+}
+
+app-label{
+  display: none;
+}

@@ -1,0 +1,99 @@
+<app-wrapper maxWidth="800px">
+
+  <div class="main">
+    <div class="title">
+      Zapisane etykiety
+    </div>
+
+    <div class="searchWrapper">
+      <mat-form-field>
+        <mat-label>
+          Id etykiety
+        </mat-label>
+        <input type="number" autocomplete="off" matInput [formControl]="searchFormControl" min="1">
+        <mat-error *ngIf="searchFormControl.hasError('required')">
+          Id etykiety jest wymagane
+        </mat-error>
+        <mat-error *ngIf="searchFormControl.hasError('min')">
+          Id etykiety musi być większe od zera
+        </mat-error>
+      </mat-form-field>
+
+      <button (click)="getLabel()" mat-raised-button color="primary">
+        SZUKAJ
+      </button>
+    </div>
+
+    <div class="labelWrapper">
+      <div *ngIf="!label && !notFound" class="empty">
+        Wyszukaj etykiete
+      </div>
+      <div *ngIf="notFound" class="empty error">
+        Nie znaleziono etykiety
+      </div>
+      <div *ngIf="!!label && !notFound">
+        <form [formGroup]="formGroup">
+
+          <mat-form-field>
+            <mat-label>
+              Nazwa części
+            </mat-label>
+            <input type="text" autocomplete="off" matInput [formControl]="formGroup.controls['partName']">
+            <mat-error *ngIf="formGroup.controls['partName'].hasError('required')">
+              Nazwa części jest wymagana
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>
+              Proponowane miejsce magazynowe
+            </mat-label>
+            <input type="text" autocomplete="off" matInput [formControl]="formGroup.controls['warehouseNumber']">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>
+              Miejsce magazynowe
+            </mat-label>
+            <input type="text" autocomplete="off" matInput [formControl]="formGroup.controls['warehouseNumberScanned']">
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>
+              Nazwa samochodu
+            </mat-label>
+            <input type="text" autocomplete="off" matInput [formControl]="formGroup.controls['car']">
+            <mat-error *ngIf="formGroup.controls['car'].hasError('required')">
+              Nazwa samochodu jest wymagana
+            </mat-error>
+          </mat-form-field>
+
+          <div class="buttonWrapper">
+
+
+            <button (click)="deleteLabel()" [disabled]="deletingLabel" mat-raised-button color="warn">
+              USUŃ
+            </button>
+
+            <button (click)="printLabel()" mat-raised-button>
+              DRUKUJ
+            </button>
+
+            <button (click)="updateLabel()" [disabled]="updatingLabel" mat-raised-button color="primary">
+              ZAPISZ
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <app-label #labelRef [size]="size" [car]="formGroup.controls['car'].value" [partName]="formGroup.controls['partName'].value" [warehouseNumber]="formGroup.controls['warehouseNumber'].value"></app-label>
+
+    </div>
+
+
+  </div>
+
+</app-wrapper>
+

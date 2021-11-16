@@ -1,0 +1,334 @@
+.mainRowWrapper{
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 8px 0 16px;
+}
+
+mat-checkbox{
+  padding: 0 16px
+}
+
+.name{
+  flex: 1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  min-width: 150px;
+}
+
+.accountNumber{
+  width: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.invoice{
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.form{
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.annotation{
+  flex: 2;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  padding-left: 24px;
+}
+
+.sum{
+  width: 70px;
+  padding-left: 48px;
+}
+
+.status{
+  width: 105px;
+  padding-left: 32px;
+}
+
+.checkboxPadding{
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(0,0,0,.6);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.nameHeader{
+  flex: 1;
+  min-width: 150px;
+}
+
+.accountNumberHeader{
+  width: 40px;
+  text-align: center;
+}
+
+.invoiceHeader{
+  width: 50px;
+  text-align: center;
+}
+
+.formHeader{
+  width: 70px;
+  text-align: center;
+}
+
+.annotationHeader{
+  flex: 2;
+  padding-left: 24px;
+}
+
+.sumHeader{
+  width: 70px;
+  padding-left: 48px;
+}
+
+.statusHeader{
+  width: 105px;
+  padding-left: 32px;
+}
+
+.auctionWrapper{
+  padding-top: 8px;
+}
+
+.auction{
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 0 0 20px 96px;
+}
+
+.auctionHeader {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(0,0,0,.6);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 16px 0 12px 96px;
+}
+
+.auctionId{
+  width: 95px;
+}
+
+.auctionIdHeader{
+  width: 95px;
+}
+
+.auctionTitle{
+  flex: 1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  padding-left: 48px;
+}
+
+.auctionTitleHeader{
+  flex: 1;
+  padding-left: 48px;
+}
+
+.quantity{
+  width: 40px;
+  padding-left: 32px;
+  text-align: center;
+}
+
+.quantityHeader{
+  width: 40px;
+  padding-left: 32px;
+  text-align: center;
+}
+
+.price{
+  width: 70px;
+  padding-left: 48px;
+}
+
+.priceHeader{
+  width: 70px;
+  padding-left: 48px;
+}
+
+.damaged{
+  width: 105px;
+  display: flex;
+  padding-left: 32px;
+}
+
+.damaged > mat-checkbox{
+  margin-left: 13px;
+}
+
+.damagedHeader{
+  width: 105px;
+  padding-left: 32px;
+}
+
+.main{
+  border-bottom: 1px solid rgba(0,0,0,0.6);
+  padding: 16px 16px;
+  margin: 0 16px;
+}
+
+.hr{
+  height: 1px;
+  border-top: 1px dashed rgba(0,0,0,0.5);
+}
+
+.annotationEmpty{
+  display: grid;
+  align-items: center;
+}
+
+mat-checkbox{
+  pointer-events: none;
+}
+
+.main:hover{
+  background-color: rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+
+  .annotation{
+    display: none;
+  }
+
+  .annotationHeader{
+    display: none;
+  }
+}
+
+@media (max-width: 1050px) {
+
+  .auctionHeader{
+    justify-content: space-around;
+  }
+
+  .auction{
+    justify-content: space-around;
+  }
+
+  .auctionTitle{
+    display: none;
+  }
+
+  .auctionTitleHeader{
+    display: none;
+  }
+
+}
+
+@media (max-width: 750px) {
+
+  .accountNumber{
+    display: none;
+  }
+
+  .accountNumberHeader{
+    display: none;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .form{
+    display: none;
+  }
+
+  .formHeader{
+    display: none;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .auctionHeader{
+    padding: 16px 0 12px 32px;
+  }
+
+  .auction{
+    padding: 0 0 20px 32px;
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  .invoice{
+    display: none;
+  }
+
+  .invoiceHeader{
+    display: none;
+  }
+
+}
+
+@media (max-width: 530px) {
+
+  .damagedHeader{
+    display: none;
+  }
+
+  .damaged{
+    display: none;
+  }
+
+
+}
+
+
+@media (max-width: 500px) {
+
+
+  .sum{
+    display: none;
+  }
+
+  .sumHeader{
+    display: none;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+
+  .main{
+    margin: 0 8px;
+  }
+
+  .auctionHeader{
+    padding: 16px 0 12px 16px;
+  }
+
+  .auction{
+    padding: 0 0 20px 16px;
+  }
+
+}
+

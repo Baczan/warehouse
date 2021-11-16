@@ -1,0 +1,5 @@
+<app-wrapper>
+  <app-role-add-item *ngFor="let item of roleService.response; let i = index" [managerResponse]="item"
+                     [visible]="i==0"></app-role-add-item>
+</app-wrapper>
+

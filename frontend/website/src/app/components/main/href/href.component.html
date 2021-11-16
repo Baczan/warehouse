@@ -1,0 +1,17 @@
+<a *ngIf="!!link" [routerLink]="link"  routerLinkActive="active" (click)="closeAfterNavigation()">
+  <mat-icon>
+    {{icon}}
+  </mat-icon>
+  <span>
+    {{text}}
+  </span>
+</a>
+
+<a *ngIf="!link" >
+  <mat-icon>
+    {{icon}}
+  </mat-icon>
+  <span>
+    {{text}}
+  </span>
+</a>

@@ -1,0 +1,40 @@
+<app-wrapper [loading]="loading">
+  <form [formGroup]="formGroup">
+    <mat-form-field class="normal">
+      <mat-label>
+        Imię
+      </mat-label>
+      <input [formControl]="formGroup.controls['firstName']" autocomplete="given-name" matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field class="normal">
+      <mat-label>
+        Nazwisko
+      </mat-label>
+      <input [formControl]="formGroup.controls['lastName']" autocomplete="family-name" matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field class="extended">
+      <mat-label>
+        Email
+      </mat-label>
+      <input [formControl]="formGroup.controls['email']" autocomplete="email" matInput readonly type="text">
+    </mat-form-field>
+
+    <mat-form-field class="extended">
+      <mat-label>
+        Numer telefonu
+      </mat-label>
+      <input [formControl]="formGroup.controls['phone']" autocomplete="tel" matInput type="tel">
+    </mat-form-field>
+
+
+    <button (click)="submit()" color="primary" mat-raised-button>
+      ZAPISZ
+    </button>
+
+
+  </form>
+
+
+</app-wrapper>

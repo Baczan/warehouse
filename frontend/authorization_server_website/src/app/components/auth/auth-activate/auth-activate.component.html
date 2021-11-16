@@ -1,0 +1,27 @@
+<div *ngIf="activationState===true">
+  <div class="activationTitle">
+    Aktywowano konto
+  </div>
+  <div class="activationText">
+    Aktywacja konta przebiegła pomyślnie i możesz się teraz zalogować
+  </div>
+  <button class="loginLink" color="primary" mat-raised-button routerLink="/auth/login">
+    PRZEJDŹ DO LOGOWANIA
+  </button>
+</div>
+
+<div *ngIf="activationState===false">
+  <div class="activationTitle error">
+    Błąd podczas aktywacji konta
+  </div>
+  <div class="activationText">
+    Wystąpił błąd podczas próby aktywacji konta. Spróbuj ponownie.
+  </div>
+  <button class="loginLink" color="primary" mat-raised-button routerLink="/auth/login">
+    PRZEJDŹ DO LOGOWANIA
+  </button>
+</div>
+
+<div *ngIf="activationState===null" class="spinnerWrapper">
+  <mat-spinner></mat-spinner>
+</div>

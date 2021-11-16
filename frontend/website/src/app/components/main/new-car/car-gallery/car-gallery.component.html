@@ -1,0 +1,37 @@
+<div *ngIf="galleryService.opened" class="main" (click)="galleryService.closeGallery()">
+
+  <div class="header">
+    <button class="closeButton" mat-icon-button>
+      <mat-icon>
+        close
+      </mat-icon>
+    </button>
+  </div>
+
+
+  <div class="wrapper">
+
+    <div class="arrow arrowLeft">
+      <button *ngIf="!galleryService.isFirst()" (click)="back($event)" mat-icon-button>
+        <mat-icon class="arrowIcon">chevron_left</mat-icon>
+      </button>
+    </div>
+
+    <div (swiperight)="backSwipe()" (swipeleft)="nextSwipe()" class="imageWrapper">
+      <img (load)="imageLoaded=true" (click)="$event.stopImmediatePropagation()"  [style.display]="imageLoaded?'block':'none'" [src]="galleryService.getSrc()">
+      <div *ngIf="!imageLoaded" class="spinnerWrapper">
+        <!--<mat-spinner></mat-spinner>-->
+        <mat-icon class="imageIcon">image</mat-icon>
+      </div>
+    </div>
+
+    <div  class="arrow arrowRight">
+      <button *ngIf="!galleryService.isLast()" (click)="next($event)" mat-icon-button>
+        <mat-icon class="arrowIcon">chevron_right</mat-icon>
+      </button>
+    </div>
+
+
+
+  </div>
+</div>

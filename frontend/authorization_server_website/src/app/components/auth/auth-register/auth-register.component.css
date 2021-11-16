@@ -1,0 +1,61 @@
+:host {
+  color: var(--inputTextColor);
+}
+
+
+span {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 12px 0 0 0;
+  display: block;
+}
+
+
+.register {
+  color: var(--loginButtonTextColor);
+  background-color: var(--loginButtonBackgroundColor);
+}
+
+.register:hover {
+  background-color: var(--loginButtonBackgroundColorHover);
+}
+
+.mat-raised-button {
+  width: 100%;
+  height: 44px;
+  margin-top: 32px;
+}
+
+.mat-button-disabled {
+  background-color: var(--buttonDisabledBackgroundColor) !important;
+  color: var(--buttonDisabledTextColor) !important;
+}
+
+.mat-button-disabled:hover {
+  background-color: var(--buttonDisabledBackgroundColor);
+}
+
+a {
+  text-decoration: none;
+  color: var(--linksColor);
+}
+
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.registerSuccessfulTitle {
+  padding-top: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
+
+.registerSuccessfulText {
+  padding-top: 20px;
+  font-size: 16px;
+}

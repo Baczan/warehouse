@@ -1,0 +1,52 @@
+:host {
+  display: block;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 3px;
+  outline: none;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: var(--inputBackgroundColor);
+  color: var(--inputTextColor);
+}
+
+.label {
+  padding-bottom: 8px;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding-left: 2px;
+  color: var(--inputLabelColor);
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--inputFocus);
+}
+
+.invalid {
+  border-color: var(--errorColor) !important;
+}
+
+.invalid_label {
+  color: var(--errorColor);
+}
+
+div > span {
+  font-style: italic;
+  font-weight: 500;
+}
+
+input:-webkit-autofill::first-line {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--inputTextColor);
+}

@@ -1,0 +1,31 @@
+<app-wrapper maxWidth="1000px">
+  <div class="main">
+    <div class="searchWrapper">
+      <mat-form-field floatLabel="never">
+        <div class="iconWrapper" matPrefix>
+          <mat-icon >
+            search
+          </mat-icon>
+        </div>
+
+        <input  type="search" [formControl]="searchControl" autocomplete="off" matInput placeholder="Wyszukaj">
+      </mat-form-field>
+      <button mat-icon-button (click)="clear()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+
+
+    <div class="list">
+      <app-part-item *ngFor="let part of parts;let i = index" [part]="part" [index]="i" ></app-part-item>
+    </div>
+
+
+    <mat-paginator #paginator [pageSize]="50">
+    </mat-paginator>
+
+
+  </div>
+
+</app-wrapper>
+

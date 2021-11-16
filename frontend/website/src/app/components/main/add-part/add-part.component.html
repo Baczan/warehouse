@@ -1,0 +1,35 @@
+<app-wrapper maxWidth="800px">
+  <div class="main">
+    <div class="title">
+      Dodaj nową część
+    </div>
+    <form [formGroup]="formGroup">
+      <mat-form-field>
+        <mat-label>
+          Nazwa części
+        </mat-label>
+        <input type="text" autocomplete="off" [formControl]="formGroup.controls['partName']" matInput>
+      </mat-form-field>
+      <mat-error *ngIf="formGroup.controls['partName'].hasError('required') && formGroup.controls['partName'].touched">
+        Nazwa części nie może być pusta
+      </mat-error>
+
+      <mat-form-field class="second">
+        <mat-label>
+          Miejsce magazynowe
+        </mat-label>
+        <input type="text" autocomplete="off" [formControl]="formGroup.controls['warehouseNumber']" matInput>
+      </mat-form-field>
+
+      <div class="buttonWrapper">
+        <button mat-raised-button color="primary" (click)="addPart()" [disabled]="formGroup.invalid || loading">
+          DODAJ
+        </button>
+      </div>
+    </form>
+
+
+  </div>
+
+
+</app-wrapper>

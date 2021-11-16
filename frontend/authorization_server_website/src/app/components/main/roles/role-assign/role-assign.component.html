@@ -1,0 +1,43 @@
+<app-wrapper maxWidth="1000px">
+  <div class="wrapper">
+    <form (submit)="inputElement.blur()">
+      <mat-form-field floatLabel="never">
+        <div class="searchIconWrapper" matPrefix>
+          <mat-icon>
+            search
+          </mat-icon>
+        </div>
+
+        <input #inputElement [formControl]="searchTextControl" autocomplete="off" matInput placeholder="Wyszukaj"
+               type="search">
+      </mat-form-field>
+    </form>
+
+    <app-list-header (sortingChanged)="changeSorting($event)" [direction]="direction"
+                     [searchText]="searchTextControl.value" [sortBy]="sortBy"></app-list-header>
+
+    <div *ngIf="users.length>0" class="userList">
+      <app-list-item *ngFor="let user of users" [user]="user"></app-list-item>
+    </div>
+
+    <div *ngIf="users.length==0" class="userList">
+      <div class="notFoundWrapper">
+        <div>
+          Nie znaleziono użytkowników
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div>
+      <mat-paginator #paginator
+                     [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSizeOptions[2]"
+                     [showFirstLastButtons]="false"></mat-paginator>
+    </div>
+
+  </div>
+
+
+</app-wrapper>

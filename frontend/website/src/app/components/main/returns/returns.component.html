@@ -1,0 +1,30 @@
+<app-wrapper maxWidth="1200px">
+  <div class="main">
+    <div class="searchWrapper">
+      <mat-form-field floatLabel="never">
+        <div class="iconWrapper" matPrefix>
+          <mat-icon >
+            search
+          </mat-icon>
+        </div>
+
+        <input  type="search" [formControl]="searchControl" autocomplete="off" matInput placeholder="Wyszukaj">
+      </mat-form-field>
+      <button mat-icon-button matTooltip="Dodaj zwrot" (click)="addNewReturn()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+
+    <div class="list">
+      <app-return-list-item *ngFor="let returnModel of returns;let i = index" [last]="(returns.length-1)==i" [returnModel]="returnModel" [index]="i" ></app-return-list-item>
+    </div>
+
+
+    <mat-paginator #paginator [pageSize]="25">
+    </mat-paginator>
+
+
+  </div>
+
+</app-wrapper>

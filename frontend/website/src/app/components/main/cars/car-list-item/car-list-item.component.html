@@ -1,0 +1,11 @@
+<div class="main">
+  <div class="carName">
+    {{car.carName}}
+  </div>
+  <div class="date">
+    {{car.dateAdded | date:'dd.MM.yyyy'}}
+  </div>
+  <button (click)="delete()" mat-icon-button>
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body{
+  --backgroundColor:white;
+  --wrapperbackgroundColor:white;
+  --inputLabelColor:rgba(0,0,0,0.7);
+  --inputTextColor:rgba(0,0,0,0.75);
+  --inputBackgroundColor:white;
+  --linksColor:#318188;
+  --loginButtonBackgroundColor:#3f51b5;
+  --loginButtonBackgroundColorHover: #2d3e9e;
+  --loginButtonTextColor:white;
+  --errorColor:#d62020;
+  --inputFocus: #1b5aff;
+  --buttonDisabledBackgroundColor:rgba(0,0,0,0.12);
+  --buttonDisabledTextColor:rgba(0,0,0,0.26);
+  --dividerColor:rgba(0,0,0,0.12);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+input:-webkit-autofill{
+  -webkit-text-fill-color: var(--inputTextColor);
+  -webkit-box-shadow: 0 0 0 50px var(--inputBackgroundColor) inset;
+  transition: background-color 5000s;
+  background-color:var(--inputBackgroundColor) !important;
+  caret-color: var(--inputTextColor);
+}
+
+
+
+a,a:hover,a:visited{
+  text-decoration: none;
+}
+
+.mat-drawer-inner-container{
+  display: flex !important;
+  flex-direction: column;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  padding-top: 8px;
+}
+
+.mat-progress-spinner circle{
+  stroke-width: 5% !important;
+}
+
+
+.mat-form-field-flex{
+  align-items: unset !important;
+}
+
+snack-bar-container{
+  margin-bottom: 36px !important;
+}
+
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+

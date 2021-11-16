@@ -1,0 +1,9 @@
+<div [class.invalid_label]="(control.invalid && control.touched) || loginError" class="label">
+  {{label}}
+  <span *ngIf="(control.invalid && control.touched) || loginError">
+    - {{getErrorMessage()}}
+  </span>
+</div>
+
+<input [autocomplete]="autocomplete" [class.invalid]="(control.invalid && control.touched) || loginError" [formControl]="control"
+       [id]="name" [name]="name" [type]="type">

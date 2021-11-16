@@ -1,0 +1,26 @@
+.listItem {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 15px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.listItem:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.listItemProperty {
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 32px;
+}
+
+.listItemEmail {
+  flex: 2;
+  padding-left: 12px;
+}
+
+

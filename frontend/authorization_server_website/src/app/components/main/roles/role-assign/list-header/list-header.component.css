@@ -1,0 +1,43 @@
+.listItem {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 12px 0;
+  margin: 0 32px;
+}
+
+
+.listItemProperty {
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.listItemPropertyHover:hover {
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.listItemEmail {
+  flex: 2;
+  padding-left: 12px;
+}
+
+@media (max-width: 800px) {
+  .listItem {
+    margin: 0 20px;
+  }
+}
+
+
+.mat-icon {
+  width: 19px;
+  height: 19px;
+  font-size: 19px;
+  margin-left: 8px;
+}

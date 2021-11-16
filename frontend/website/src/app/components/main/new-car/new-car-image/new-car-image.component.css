@@ -1,0 +1,44 @@
+.main{
+  height: 150px;
+  width: 200px;
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img{
+  border-radius: 10px;
+}
+
+img:hover{
+  cursor: pointer;
+  border: 2px solid #6262c1;
+}
+
+.imageWrapper{
+  position: relative;
+}
+
+
+.imageWrapper > button{
+  position: absolute;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  right: 4px;
+  top: 4px;
+  display: none;
+}
+
+.imageWrapper:hover > button{
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .imageWrapper > button{
+    display: block;
+  }
+}

@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  min-width: 300px;
+  flex: 1;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.mat-input-element:disabled {
+  color: rgba(0, 0, 0, .7);
+}
+
+::ng-deep .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 33%, transparent 0%);
+}
+
+.item > button {
+  margin-top: 8px;
+  margin-left: 16px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+input {
+  text-transform: uppercase;
+}

@@ -1,0 +1,57 @@
+.title{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: rgba(0,0,0,0.8);
+}
+
+.main{
+  padding: 0px 32px;
+  box-sizing: border-box;
+}
+
+mat-form-field{
+  width: 100%;
+  font-size: 16px;
+}
+
+mat-error{
+  margin-top: -13px;
+}
+
+.second{
+  padding-top: 16px;
+}
+
+.buttonWrapper{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+}
+
+.spinnerWrapper{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spacer{
+  flex:1;
+}
+
+.titleWrapper{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  margin-bottom: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.deleteButton{
+  margin-right: 48px;
+  background-color: #d80027;
+  color: white;
+}

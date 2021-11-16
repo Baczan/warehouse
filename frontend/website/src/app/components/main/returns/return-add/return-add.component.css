@@ -1,0 +1,231 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: rgba(0,0,0,0.7);
+}
+
+.spacer{
+  flex:1;
+}
+
+.titleWrapper{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 8px 16px;
+  color: rgba(0,0,0,0.8);
+}
+
+.form{
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 32px 32px;
+}
+
+mat-form-field{
+  font-size:16px;
+  width: 100%;
+}
+
+.rowWrapper{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding-bottom: 24px;
+}
+
+.rowWrapper > mat-checkbox{
+  line-height: 65px;
+}
+
+.statusWrapper{
+  flex: 1;
+  min-width: 200px;
+}
+
+
+.secondCheckbox{
+  margin-left: 48px;
+  margin-right: 48px;
+}
+
+::ng-deep .mat-checkbox-label{
+  font-size: 16px;
+  margin-left: 2px;
+}
+
+.sum{
+  width: 100px;
+  margin-right: 48px;
+}
+
+.auctionNumberWrapper{
+  display: flex;
+}
+
+.auctionNumberWrapper > mat-form-field{
+  padding-bottom: 8px;
+}
+
+.auction{
+  border-top: 1px solid rgba(0,0,0,0.6);
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.auctionNumber{
+  width: 225px;
+  margin-right: 48px;
+}
+
+.auctionTitle{
+  flex: 1;
+}
+
+
+.priceWrapper{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.checkbox > mat-checkbox{
+  padding-right: 48px;
+}
+
+
+::ng-deep .mat-form-field-infix{
+  width: 70px !important;
+}
+
+.price{
+  flex: 1;
+  padding-right: 48px;
+}
+
+.quantity{
+  flex: 1;
+  padding-right: 48px;
+}
+
+.addAuction{
+  background-color: rgba(0,0,0,.06);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  color: rgba(0,0,0,.6);
+  cursor: pointer;
+  transition: 165ms ease-in-out;
+  margin-top: 16px;
+}
+
+.addAuction:hover{
+  background-color: rgba(0,0,0,.12);
+}
+
+.checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer{
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 32px;
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.price{
+  padding-bottom:8px;
+}
+
+.updateButton{
+  margin-left: 48px;
+}
+
+.spinnerWrapper{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .auctionNumberWrapper{
+    display: block;
+  }
+  .auctionNumber{
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .sum{
+    flex: 1;
+    min-width: 200px;
+    margin-right: 0;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .price{
+    padding-right: 0;
+  }
+
+  .checkbox{
+    width: 100%;
+  }
+
+  .checkbox > mat-checkbox{
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sum{
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sum{
+    min-width: 100%;
+    flex: 1;
+    padding-bottom: 16px;
+  }
+
+  .rowWrapper{
+    padding-bottom: 16px;
+  }
+
+  .secondCheckbox{
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 450px) {
+
+  .form{
+    padding: 16px 16px 32px;
+  }
+
+}
+
+
+
+
+

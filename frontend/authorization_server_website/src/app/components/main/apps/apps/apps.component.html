@@ -1,0 +1,170 @@
+<app-wrapper>
+  <div *ngIf="!loadingClient && formGroup" class="main">
+    <form #form [formGroup]="formGroup">
+
+      <div class="name-wrapper">
+
+        <mat-form-field class="name">
+          <mat-label>
+            Nazwa aplikacji
+          </mat-label>
+          <input [formControl]="formGroup.controls['name']" matInput type="text">
+          <mat-error *ngIf="formGroup.controls['name'].hasError('already_exists')">
+            Aplikacja o podanej nazwie już istnieje
+          </mat-error>
+          <mat-error *ngIf="formGroup.controls['name'].hasError('required')">
+            Nazwa aplikacji jest wymagana
+          </mat-error>
+        </mat-form-field>
+
+        <button (click)="deleteClient()" mat-icon-button type="button">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </div>
+
+      <mat-form-field class="uuid">
+        <mat-label>
+          Id klienta
+        </mat-label>
+        <input matInput readonly type="text" value="{{client.clientId}}">
+      </mat-form-field>
+
+      <div class="uuid-wrapper">
+
+        <mat-form-field class="uuid">
+          <mat-label>
+            Klucz
+          </mat-label>
+          <input matInput readonly type="text" value="{{client.clientSecret}}">
+        </mat-form-field>
+
+        <button (click)="refreshSecret()" mat-icon-button type="button">
+          <mat-icon>cached</mat-icon>
+        </button>
+
+      </div>
+
+      <div class="clientSettings">
+        <div>Ustawienia klienta</div>
+        <mat-slide-toggle [formControl]="formGroup.controls['requireProofKey']" color="primary">Wymagaj Proof Key
+        </mat-slide-toggle>
+        <mat-slide-toggle [formControl]="formGroup.controls['requireUserConsent']" color="primary">Wymagaj zgody
+          użytkownika
+        </mat-slide-toggle>
+        <mat-slide-toggle [formControl]="formGroup.controls['reuseRefreshTokens']" color="primary">Używaj tych samych
+          tokenów odświeżających
+        </mat-slide-toggle>
+      </div>
+
+      <div class="tokenSettings">
+        <div class="tokenName">Ustawienia tokenów</div>
+        <mat-form-field class="tokens">
+          <mat-label>
+            Długość życia tokenu dostępu
+          </mat-label>
+          <input [formControl]="formGroup.controls['accessTokenTimeToLive']" matInput type="text">
+          <mat-error *ngIf="formGroup.controls['accessTokenTimeToLive'].hasError('wrong_format')">
+            Zły format długości życia tokenu
+          </mat-error>
+          <mat-error *ngIf="formGroup.controls['accessTokenTimeToLive'].hasError('required')">
+            Długość życia tokenu jest wymagana
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="tokens">
+          <mat-label>
+            Długość życia tokenu odświeżającego
+          </mat-label>
+          <input [formControl]="formGroup.controls['refreshTokenTimeToLive']" matInput type="text">
+          <mat-error *ngIf="formGroup.controls['refreshTokenTimeToLive'].hasError('wrong_format')">
+            Zły format długości życia tokenu
+          </mat-error>
+          <mat-error *ngIf="formGroup.controls['refreshTokenTimeToLive'].hasError('required')">
+            Długość życia tokenu jest wymagana
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="authWrapper">
+        <div class="authSettings">
+          <div>Ustawienia autentykacji klienta</div>
+          <mat-slide-toggle [formControl]="formGroup.controls['authentication_method_basic']" color="primary">Basic
+          </mat-slide-toggle>
+          <mat-slide-toggle [formControl]="formGroup.controls['authentication_method_post']" color="primary">Post
+          </mat-slide-toggle>
+          <mat-slide-toggle [formControl]="formGroup.controls['authentication_method_none']" color="primary">None
+          </mat-slide-toggle>
+          <mat-error *ngIf="formGroup.controls['authentication_method_basic'].hasError('not_selected')">
+            Musisz wybrać conajmniej jeden
+          </mat-error>
+        </div>
+
+        <div class="authSettings">
+          <div>Grant types</div>
+          <mat-slide-toggle [formControl]="formGroup.controls['authorization_grant_type_authorization_code']"
+                            color="primary">Authorization code
+          </mat-slide-toggle>
+          <mat-slide-toggle [formControl]="formGroup.controls['authorization_grant_type_implicit']" color="primary">
+            Implicit
+          </mat-slide-toggle>
+          <mat-slide-toggle [formControl]="formGroup.controls['authorization_grant_type_refresh_token']"
+                            color="primary">Refresh token
+          </mat-slide-toggle>
+          <mat-slide-toggle [formControl]="formGroup.controls['authorization_grant_type_password']" color="primary">
+            Password
+          </mat-slide-toggle>
+          <mat-slide-toggle [formControl]="formGroup.controls['authorization_grant_type_client_credentials']"
+                            color="primary">Client credentials
+          </mat-slide-toggle>
+          <mat-error *ngIf="formGroup.controls['authorization_grant_type_authorization_code'].hasError('not_selected')">
+            Musisz wybrać conajmniej jeden inny niż Refresh Token
+          </mat-error>
+        </div>
+      </div>
+
+      <div *ngIf="formArray" class="redirect_urls">
+        <div class="redirect_urls_titles">
+          <div class="redirect_urls_titles_text">
+            Identyfikatory URI
+          </div>
+
+          <button (click)="add()" mat-icon-button type="button">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <div class="redirect_urls_list">
+          <div *ngFor="let control of formArray.controls;let i=index" class="redirect_urls_list_item">
+            <mat-form-field class="redirect">
+              <input [formControl]="control" matInput type="text">
+              <mat-error *ngIf="control.hasError('required')">
+                Nie może być pusty
+              </mat-error>
+            </mat-form-field>
+            <button (click)="deleteRedirect(i)" *ngIf="formArray.length>1" mat-icon-button type="button">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    <div *ngIf="!loadingClient" class="floating">
+      <mat-divider></mat-divider>
+      <div class="buttons">
+
+        <button (click)="submit()" [disabled]="formGroup.invalid && formGroup.touched || saving" color="primary"
+                mat-raised-button>
+          ZAPISZ
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div *ngIf="loadingClient" class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+  </div>
+
+</app-wrapper>

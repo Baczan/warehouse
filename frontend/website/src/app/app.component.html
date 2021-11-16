@@ -1,0 +1,5 @@
+<div *ngIf="initializingService.appInitializing()" class="wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+<router-outlet *ngIf="!initializingService.appInitializing()"></router-outlet>
+<app-car-gallery></app-car-gallery>

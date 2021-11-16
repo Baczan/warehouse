@@ -1,0 +1,30 @@
+<a (click)="drawerClick()" *ngIf="!expandable" [routerLinkActiveOptions]="{exact: true}" [routerLink]="routerLink"
+   routerLinkActive="active">
+  <mat-icon>
+    {{icon}}
+  </mat-icon>
+  <span>
+    {{text}}
+  </span>
+  <div class="spacer"></div>
+  <mat-icon *ngIf="expandable">
+    {{expanded ? 'expand_less' : 'expand_more'}}
+  </mat-icon>
+</a>
+
+<a (click)="click()" *ngIf="expandable">
+  <mat-icon>
+    {{icon}}
+  </mat-icon>
+  <span>
+    {{text}}
+  </span>
+  <div class="spacer"></div>
+  <mat-icon *ngIf="expandable">
+    {{expanded ? 'expand_less' : 'expand_more'}}
+  </mat-icon>
+</a>
+<div *ngIf="expanded" class="content">
+  <ng-content></ng-content>
+</div>
+

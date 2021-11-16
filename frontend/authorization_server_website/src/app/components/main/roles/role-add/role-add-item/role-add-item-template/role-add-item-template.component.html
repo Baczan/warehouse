@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup" class="item">
+
+  <mat-form-field>
+    <input [formControl]="formGroup.controls['role']" autocomplete="off" matInput>
+    <mat-error *ngIf="formGroup.controls['role'].hasError('required')">
+      Wymagane
+    </mat-error>
+    <mat-error *ngIf="formGroup.controls['role'].hasError('cannot_be_default_role')">
+      Nie można dodać takiej roli
+    </mat-error>
+  </mat-form-field>
+
+  <button (click)="delete()" mat-icon-button>
+    <mat-icon> delete</mat-icon>
+  </button>
+
+</form>

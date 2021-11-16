@@ -1,0 +1,21 @@
+<app-wrapper>
+  <form [formGroup]="formGroup">
+    <mat-form-field class="normal">
+      <mat-label>
+        Nazwa aplikacji
+      </mat-label>
+      <input [formControl]="formGroup.controls['name']" matInput type="text">
+      <mat-error *ngIf="formGroup.controls['name'].hasError('required')">
+        Nazwa aplikacji jest wymagana
+      </mat-error>
+      <mat-error *ngIf="formGroup.controls['name'].hasError('already_exists')">
+        Aplikacja o podanej nazwie już istnieje
+      </mat-error>
+    </mat-form-field>
+
+    <button (click)="submit()" [disabled]="(formGroup.touched && formGroup.invalid) || loading" color="primary"
+            mat-raised-button>
+      DALEJ
+    </button>
+  </form>
+</app-wrapper>

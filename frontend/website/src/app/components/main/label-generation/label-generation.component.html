@@ -1,0 +1,87 @@
+<app-wrapper maxWidth="800px">
+  <div class="main">
+    <div class="title">
+      Generuj etykiety
+    </div>
+
+    <mat-form-field>
+      <mat-label>
+        Nazwa części
+      </mat-label>
+      <input type="text" autocomplete="off" matInput [formControl]="formGroup.controls['partName']" [matAutocomplete]="auto">
+
+      <mat-autocomplete (opened)="autocompleteScroll()" #auto="matAutocomplete">
+        <mat-option (onSelectionChange)="selectedPart(part)" [value]="part.partName" *ngFor="let part of parts">
+          <div *ngIf="!!part.highlightedPartName" [innerHTML]="part.highlightedPartName">
+          </div>
+          <div *ngIf="!part.highlightedPartName" [innerHTML]="part.partName">
+          </div>
+        </mat-option>
+      </mat-autocomplete>
+
+      <mat-error *ngIf="formGroup.controls['partName'].hasError('required')">
+        Nazwa części jest wymagana
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>
+        Miejsce magazynowe
+      </mat-label>
+      <input type="text" autocomplete="off" matInput [formControl]="formGroup.controls['warehouseNumber']">
+      <mat-error *ngIf="formGroup.controls['warehouseNumber'].hasError('required')">
+        Miejsce magazynowe jest wymagane
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>
+        Samochód
+      </mat-label>
+      <mat-select [formControl]="formGroup.controls['car']">
+        <mat-option *ngFor="let car of newCarService.cars.slice(0,10)" [value]="valueFromCar(car)">
+          {{car.carName}}&nbsp;&nbsp;{{car.dateAdded | date:'dd.MM.yyyy'}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="formGroup.controls['car'].hasError('required')">
+        Samochód jest wymagany
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>
+        Rozmiar etykiety
+      </mat-label>
+      <input #sizeInput type="number" autocomplete="off" matInput [formControl]="formGroup.controls['size']">
+      <mat-error *ngIf="formGroup.controls['size'].hasError('required')">
+        Rozmiar etykiety jest wymagany
+      </mat-error>
+    </mat-form-field>
+
+
+    <div class="buttonWrapper">
+      <button mat-raised-button  class="firstButton" (click)="setWarehouseNumber('Karton wiązki')">
+        WIĄZKI
+      </button>
+      <button mat-raised-button  class="firstButton" (click)="setWarehouseNumber('Karton tapicerki')">
+        TAPICERKI
+      </button>
+
+      <button mat-raised-button  class="firstButton" (click)="setWarehouseNumber('Brak')">
+        BRAK
+      </button>
+      <div class="spacer">
+
+      </div>
+      <button [disabled]="formGroup.invalid || formGroup.controls['car'].value=='' || loading" (click)="printLabel()" mat-raised-button color="primary">
+        DRUKUJ
+      </button>
+    </div>
+
+    <div  class="labelWrapper">
+      <app-label #label [id]="id" [car]="formGroup.controls['car'].value" [partName]="formGroup.controls['partName'].value" [warehouseNumber]="formGroup.controls['warehouseNumber'].value" [size]="sizeInput.value"></app-label>
+    </div>
+
+  </div>
+</app-wrapper>

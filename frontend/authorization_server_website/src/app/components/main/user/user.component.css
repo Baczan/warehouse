@@ -1,0 +1,45 @@
+
+form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.mat-form-field {
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 0 25px;
+  flex-shrink: 0;
+}
+
+.normal {
+  width: 100%;
+  max-width: 384px;
+  min-width: 250px;
+}
+
+.extended {
+  width: 100%;
+}
+
+
+@media (max-width: 1056px) {
+  .normal {
+    max-width: 800px;
+  }
+
+  .extended {
+    max-width: 800px;
+  }
+}
+
+button {
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+@media (max-width: 800px) {
+  .listItem {
+    margin: 0 20px;
+  }
+}

@@ -1,0 +1,48 @@
+<header class="mat-elevation-z1">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>
+    Magazyn
+  </span>
+</header>
+<mat-drawer-container #container [hasBackdrop]="hasBackdrop">
+  <mat-drawer #drawer [mode]="mode" [opened]="opened" class="mat-elevation-z1">
+
+    <div class="mainLinkWrapper" *ngIf="!auth.loggedIn()">
+      <app-href (click)="auth.login()"  [text]="'Zaloguj się'" [icon]="'person'" [matDrawer]="drawer"></app-href>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="mainLinkWrapper" *ngIf="auth.loggedIn()">
+      <app-href (click)="openAccountPage()"  [text]="'Konto'" [icon]="'person'" [matDrawer]="drawer"></app-href>
+      <mat-divider></mat-divider>
+    </div>
+
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()"  [link]="'/app/label'" [text]="'Generuj etykiety'" [icon]="'video_label'" [matDrawer]="drawer"></app-href>
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()"  [link]="'/app/savedLabel'" [text]="'Zapisane etykiety'" [icon]="'local_shipping'" [matDrawer]="drawer"></app-href>
+    <app-href  [link]="'/app/parts'" [text]="'Części'" [icon]="'settings'" [matDrawer]="drawer"></app-href>
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()"  [link]="'/app/addPart'" [text]="'Dodaj części'" [icon]="'add'" [matDrawer]="drawer"></app-href>
+
+
+
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()"  [link]="'/app/newCar'" [text]="'Samochody'" [icon]="'directions_car'" [matDrawer]="drawer"></app-href>
+
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()"  [link]="'/app/returns'" [text]="'Zwroty'" [icon]="'keyboard_return'" [matDrawer]="drawer"></app-href>
+
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()" [link]="'/app/connect'" [text]="'Połączone aplikacje'" [icon]="'link'" [matDrawer]="drawer"></app-href>
+
+    <app-href *ngIf="auth.loggedIn() && auth.isAdmin()" [link]="'/app/sync'" [text]="'Skaner'" [icon]="'publish'" [matDrawer]="drawer"></app-href>
+
+
+    <div class="spacer"></div>
+
+    <app-href *ngIf="auth.loggedIn()" (click)="auth.logout()" [link]="'/app/logut'" [text]="'Wyloguj się'" [icon]="'logout'" [matDrawer]="drawer"></app-href>
+
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>
+

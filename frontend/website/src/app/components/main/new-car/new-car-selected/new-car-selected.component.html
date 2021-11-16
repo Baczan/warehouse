@@ -1,0 +1,160 @@
+<app-wrapper maxWidth="1230px">
+
+
+
+  <div class="main" *ngIf="!loading">
+    <div class="titleWrapper">
+      <div class="spacer">
+        <button (click)="navigateBack()" mat-icon-button>
+          <mat-icon>
+            arrow_back
+          </mat-icon>
+        </button>
+      </div>
+
+      <div class="title">
+        Zaktualizuj samochód
+      </div>
+
+      <div class="spacer">
+      </div>
+
+    </div>
+
+    <div class="form" >
+
+      <form [formGroup]="formGroup" *ngIf="true">
+
+        <mat-form-field>
+          <mat-label>Nazwa samochodu</mat-label>
+          <input type="text" id="carName" autocomplete="off" formControlName="carName" matInput>
+          <mat-error *ngIf="formGroup.controls['carName'].hasError('required')">
+            Nazwa samochodu jest wymagana
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Marka samochodu</mat-label>
+          <input type="text" id="brand" autocomplete="off" formControlName="brand" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Rocznik</mat-label>
+          <input type="text" id="year" autocomplete="off" formControlName="year" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Lata produkcji</mat-label>
+          <input type="text" id="productionYears" autocomplete="off" formControlName="productionYears" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Silnik</mat-label>
+          <input type="text" id="engine" autocomplete="off" formControlName="engine" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Kod silnika</mat-label>
+          <input type="text" id="engineCode" autocomplete="off" formControlName="engineCode" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Skrzynia biegów</mat-label>
+          <input type="text" id="transmission" autocomplete="off" formControlName="transmission" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Kod skrzyni biegów</mat-label>
+          <input type="text" id="transmissionCode" autocomplete="off" formControlName="transmissionCode" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Nadwozie</mat-label>
+          <input type="text" id="body" autocomplete="off" formControlName="body" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Klimatyzacja</mat-label>
+          <input type="text" id="ac" autocomplete="off" formControlName="ac" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Kod lakieru</mat-label>
+          <input type="text" id="paintCode" autocomplete="off" formControlName="paintCode" matInput>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Elektryczne szyby</mat-label>
+          <input type="text" id="electricWindows" autocomplete="off" formControlName="electricWindows" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Elektryczne lusterka</mat-label>
+          <input type="text" id="electricMirrors" autocomplete="off" formControlName="electricMirrors" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Przebieg</mat-label>
+          <input type="text" id="mileage" autocomplete="off" formControlName="mileage" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>ABS</mat-label>
+          <input type="text" id="abs" autocomplete="off" formControlName="abs" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="s300">
+          <mat-label>VIN</mat-label>
+          <input type="text" id="vin" autocomplete="off" formControlName="vin" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="s400">
+          <mat-label>Uwagi</mat-label>
+          <textarea type="text" id="annotation" autocomplete="off" formControlName="annotation" matInput rows="1" cdkTextareaAutosize></textarea>
+        </mat-form-field>
+      </form>
+
+      <div class="imageTitleWrapper">
+        <div class="imageSpacer"></div>
+        <div class="imageText">
+          Zdjęcia
+        </div>
+
+        <div class="imageSpacer"></div>
+      </div>
+
+      <div class="images">
+
+        <input #fileInput (change)="fileInputClick($event)" type="file" multiple="true" accept=".jpg;.png;.jpeg">
+
+        <div (click)="fileInput.click()" class="imageAddButton">
+          <mat-icon>
+            add
+          </mat-icon>
+        </div>
+
+        <div *ngFor="let fileUploading of getFileUpload()">
+          <app-new-car-image-upload [fileUpload]="fileUploading"></app-new-car-image-upload>
+        </div>
+
+        <app-new-car-image *ngFor="let image of carService.images; let i = index" [index]="i" [image]="image" >
+
+        </app-new-car-image>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+
+      <button (click)="deleteCar()"  mat-raised-button color="warn">
+        USUŃ
+      </button>
+      <button (click)="saveCar()" [disabled]="updating"  mat-raised-button color="primary" class="updateButton">
+        ZAPISZ
+      </button>
+    </div>
+  </div>
+
+</app-wrapper>

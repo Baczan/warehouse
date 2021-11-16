@@ -1,0 +1,23 @@
+<div #main>
+  <div  class="mainLabel" style="{{getSize()}}">
+
+    <div class="partNameLabel commonLabel">{{partName}}</div>
+
+
+
+
+      <div class="carLabel">
+        {{car}}
+      </div>
+
+
+    <div class="warehouseNumberLabel commonLabel">{{warehouseNumber}}</div>
+
+    <div class="barWrapper">
+      <ngx-barcode [bc-value]="getId()" bc-font-size="52px" [bc-height]="85" [bc-width]="5" [bc-display-value]="true"></ngx-barcode>
+
+    </div>
+
+
+  </div>
+</div>

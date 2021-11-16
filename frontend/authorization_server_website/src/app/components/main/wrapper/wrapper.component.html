@@ -1,0 +1,9 @@
+<div *ngIf="!loading" [style.max-width]="maxWidth" class="wrapper mat-elevation-z2">
+  <ng-content>
+
+  </ng-content>
+</div>
+
+<mat-progress-spinner *ngIf="loading" color="primary" mode="indeterminate"></mat-progress-spinner>
+
+

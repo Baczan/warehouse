@@ -1,0 +1,109 @@
+.mat-raised-button {
+  width: 100%;
+  height: 44px;
+}
+
+.password {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 6px 0 22px 2px;
+  display: block;
+  color: var(--linksColor);
+}
+
+.register-wrapper {
+  margin: 12px 0 20px 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--inputLabelColor);
+}
+
+.register-wrapper > a {
+  color: var(--linksColor);
+}
+
+.spacer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 12px;
+  font-size: 12px;
+  font-weight: 600;
+
+  color: var(--inputLabelColor);
+  margin-bottom: 18px;
+}
+
+
+hr {
+  flex: 1;
+  border-color: var(--inputLabelColor);
+  background-color: var(--inputLabelColor);
+  color: var(--inputLabelColor);
+}
+
+.spacer > span {
+  margin: 0 6px;
+}
+
+
+.socialLoginLink {
+  border-radius: 3px;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, serif;
+  transition: background-color .17s ease-in-out;
+}
+
+.facebook {
+  background-color: #3c6bab;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.facebook:hover {
+  background-color: #3b5998;
+}
+
+.google:hover {
+  background-color: #b4473b;
+}
+
+.google {
+  background-color: #cc493d;
+}
+
+
+.login {
+  color: var(--loginButtonTextColor);
+  background-color: var(--loginButtonBackgroundColor);
+}
+
+.login:hover {
+  background-color: var(--loginButtonBackgroundColorHover);
+}
+
+.mat-button-disabled {
+  background-color: var(--buttonDisabledBackgroundColor) !important;
+  color: var(--buttonDisabledTextColor) !important;
+}
+
+.mat-button-disabled:hover {
+  background-color: var(--buttonDisabledBackgroundColor);
+}
+
+.error-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

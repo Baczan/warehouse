@@ -1,0 +1,36 @@
+<div #listItem class="listItem">
+  <div (click)="changeSorting('email')" [class.listItemPropertyHover]="searchText==''"
+       class="listItemProperty listItemEmail">
+    Email
+
+    <mat-icon *ngIf="searchText=='' && sortBy=='email' && direction=='desc'">arrow_downward</mat-icon>
+    <mat-icon *ngIf="searchText=='' && sortBy=='email' && direction=='asc'">arrow_upward</mat-icon>
+
+
+  </div>
+  <div (click)="changeSorting('firstName')" [class.listItemPropertyHover]="searchText==''"
+       [style.display]="firstNameDisplay? 'flex' : 'none'" class="listItemProperty">
+    Imię
+
+    <mat-icon *ngIf="searchText=='' && sortBy=='firstName' && direction=='desc'">arrow_downward</mat-icon>
+    <mat-icon *ngIf="searchText=='' && sortBy=='firstName' && direction=='asc'">arrow_upward</mat-icon>
+
+  </div>
+  <div (click)="changeSorting('lastName')" [class.listItemPropertyHover]="searchText==''"
+       [style.display]="lastNameDisplay? 'flex' : 'none'" class="listItemProperty">
+    Nazwisko
+
+    <mat-icon *ngIf="searchText=='' && sortBy=='lastName' && direction=='desc'">arrow_downward</mat-icon>
+    <mat-icon *ngIf="searchText=='' && sortBy=='lastName' && direction=='asc'">arrow_upward</mat-icon>
+  </div>
+
+  <div (click)="changeSorting('createdAt')" [class.listItemPropertyHover]="searchText==''"
+       [style.display]="dateDisplay? 'flex' : 'none'" class="listItemProperty">
+    Data dołączenia
+
+    <mat-icon *ngIf="searchText=='' && sortBy=='createdAt' && direction=='desc'">arrow_downward</mat-icon>
+    <mat-icon *ngIf="searchText=='' && sortBy=='createdAt' && direction=='asc'">arrow_upward</mat-icon>
+  </div>
+
+</div>
+

@@ -1,0 +1,16 @@
+<div #listItem (click)="navigate()" class="listItem">
+  <div class="listItemProperty listItemEmail">
+    {{user.email}}
+  </div>
+  <div [style.display]="firstNameDisplay? 'block' : 'none'" class="listItemProperty">
+    {{user.firstName}}
+  </div>
+  <div [style.display]="lastNameDisplay? 'block' : 'none'" class="listItemProperty">
+    {{user.lastName}}
+  </div>
+
+  <div [style.display]="dateDisplay? 'block' : 'none'" class="listItemProperty">
+    {{user.createdAt | customDate}}
+  </div>
+
+</div>

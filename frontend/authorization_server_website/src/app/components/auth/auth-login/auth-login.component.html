@@ -1,0 +1,30 @@
+<!--<div class="header">Zaloguj się</div> -->
+<form #form [action]="loginActionUrl" [formGroup]="formGroup" method="post">
+
+  <app-input [autocomplete]="'email'" [control]="formGroup.controls['username']" [label]="'E-MAIL'" [loginError]="badcredentials"
+             [name]="'username'" [type]="'text'">
+  </app-input>
+  <app-input [autocomplete]="'current_password'" [control]="formGroup.controls['password']" [label]="'HASŁO'" [loginError]="badcredentials"
+             [name]="'password'" [type]="'password'">
+  </app-input>
+  <a class="password" routerLink="/auth/password_change">Nie pamiętasz hasła?</a>
+  <button (click)="form.submit()" [disabled]="formGroup.invalid && formGroup.touched" class="login" color="primary"
+          mat-raised-button>ZALOGUJ SIĘ
+  </button>
+  <div class="register-wrapper">
+    Potrzebujesz konta?
+    <a routerLink="/auth/register">Zarejestruj się</a>
+  </div>
+
+  <div class="spacer">
+    <hr>
+    <span>LUB</span>
+    <hr>
+  </div>
+
+  <a [href]="loginGoogleUrl" class="socialLoginLink google" mat-raised-button>Zaloguj się za pomocą Google</a>
+  <a [href]="loginFacebookUrl" class="socialLoginLink facebook" mat-raised-button>Zaloguj się za pomocą Facebook</a>
+
+  <input [value]="auth.csrf_token" name="_csrf" type="hidden"/>
+</form>
+

@@ -1,0 +1,99 @@
+<div (click)="navigate()" class="main" [style.border-bottom]="last?'1px solid rgba(0,0,0,0.6);':'1px solid rgba(0,0,0,0.6);'">
+  <div class="header">
+    <div class="nameHeader">
+      Imię i nazwisko
+    </div>
+    <div class="accountNumberHeader checkboxPadding">
+      Konto
+    </div>
+    <div class="invoiceHeader checkboxPadding">
+      Faktura
+    </div>
+    <div class="formHeader checkboxPadding">
+      Formularz
+    </div>
+    <div class="annotationHeader">
+      Uwagi
+    </div>
+    <div class="sumHeader">
+      Suma
+    </div>
+    <div class="statusHeader">
+      Status
+    </div>
+  </div>
+
+  <div class="mainRowWrapper">
+
+    <div class="name">
+      {{returnModel.name}}
+    </div>
+    <div class="accountNumber checkboxPadding">
+      <mat-checkbox [checked]="!!returnModel.accountNumber">
+      </mat-checkbox>
+    </div>
+    <div class="invoice checkboxPadding">
+      <mat-checkbox [checked]="returnModel.invoice">
+      </mat-checkbox>
+    </div>
+    <div class="form checkboxPadding">
+      <mat-checkbox [checked]="returnModel.form">
+      </mat-checkbox>
+    </div>
+    <div *ngIf="!!returnModel.annotation" class="annotation">
+      {{returnModel.annotation}}
+    </div>
+    <div *ngIf="!returnModel.annotation" class="annotation annotationEmpty">
+      <div class="hr"></div>
+    </div>
+    <div class="sum">
+      {{returnModel.sum.toFixed(2)}} zł
+    </div>
+    <div class="status">
+      {{getStatus()}}
+    </div>
+  </div>
+
+  <div class="auctionWrapper">
+    <div class="auctionHeader">
+      <div class="auctionIdHeader">
+        Numer aukcji
+      </div>
+      <div class="auctionTitleHeader">
+        Tytuł aukcji
+      </div>
+      <div class="quantityHeader">
+        Ilość
+      </div>
+      <div class="priceHeader">
+        Cena
+      </div>
+      <div class="damagedHeader">
+        Uszk/Niewys
+      </div>
+    </div>
+    <div class="auction" *ngFor="let auction of returnModel.auctions">
+      <div class="auctionId">
+        {{auction.auctionNumber}}
+      </div>
+      <div class="auctionTitle">
+        {{auction.auctionTitle}}
+      </div>
+      <div class="quantity">
+        {{auction.quantity}}
+      </div>
+      <div class="price">
+        {{auction.price.toFixed(2)}} zł
+      </div>
+      <div class="damaged">
+        <mat-checkbox [checked]="auction.damaged">
+        </mat-checkbox>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+

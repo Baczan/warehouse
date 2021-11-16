@@ -1,0 +1,37 @@
+<div (click)="visible=!visible" class="headerWrapper noSelect">
+  <mat-divider></mat-divider>
+  <span>
+    {{managerResponse.clientName}}
+    <mat-icon *ngIf="!visible">expand_more</mat-icon>
+    <mat-icon *ngIf="visible">expand_less</mat-icon>
+  </span>
+
+  <mat-divider></mat-divider>
+</div>
+<div *ngIf="visible" class="listWrapper">
+
+
+  <div class="item">
+
+    <mat-form-field>
+      <input disabled matInput readonly value="MANAGER">
+    </mat-form-field>
+
+  </div>
+
+  <div class="item">
+
+    <mat-form-field>
+      <input disabled matInput readonly value="ADMIN">
+    </mat-form-field>
+
+  </div>
+
+
+  <app-role-add-item-template *ngFor="let roleTemplate of managerResponse.rolesTemplates;let i = index" [index]="i"
+                              [roleTemplate]="roleTemplate"></app-role-add-item-template>
+  <div (click)="addRole()" class="addIconButton">
+    <mat-icon>add</mat-icon>
+  </div>
+</div>
+

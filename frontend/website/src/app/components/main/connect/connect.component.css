@@ -1,0 +1,66 @@
+.main{
+  height: 100%;
+  padding: 16px 32px 0px;
+  box-sizing: border-box;
+}
+
+.title{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: rgba(0,0,0,0.8);
+  padding-bottom: 16px;
+}
+
+.allegro{
+  height: 80px;
+  padding-right: 24px;
+}
+
+.connection{
+  border-top: 1px solid rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.connectionText{
+  font-size: 15px;
+  margin-right: 24px;
+}
+
+.connectionText > span{
+  font-weight: 500;
+  color: rgba(0,0,0,0.8)
+}
+
+.spacer{
+  flex: 1;
+}
+
+.connect{
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: rgba(0,0,0,0.8);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.connect:hover{
+  background-color: rgba(0,0,0,0.06);
+}
+
+
+@media (max-width: 800px) {
+  .main{
+    padding: 16px 24px 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main{
+    padding: 16px 16px 0px;
+  }
+}

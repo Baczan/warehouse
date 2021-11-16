@@ -1,0 +1,10 @@
+.wrapper{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep circle{
+  stroke-width: 5% !important;
+}

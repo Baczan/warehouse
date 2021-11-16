@@ -1,0 +1,137 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: rgba(0,0,0,0.7);
+}
+
+.spacer{
+  flex:1;
+}
+
+.titleWrapper{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 6px 16px;
+  color: rgba(0,0,0,0.8);
+}
+
+.form{
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 32px 32px;
+}
+
+form{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-form-field{
+  font-size:16px;
+  width: 100%;
+  padding-bottom: 6px;
+  max-width: 25%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.footer{
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 32px;
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.updateButton{
+  margin-left: 48px;
+}
+
+.imageTitleWrapper{
+  display: flex;
+  align-items: center;
+}
+
+.imageSpacer{
+  flex: 1;
+  border-top: 1px solid rgba(0,0,0,0.24)
+}
+
+.imageText{
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.6);
+  padding: 0 16px;
+}
+
+.imageAddButton{
+  height: 150px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.06);
+  border-radius: 10px;
+  color: rgba(0,0,0,0.6);
+  margin: 16px;
+}
+
+
+.imageAddButton:hover{
+  background-color: rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.images > input{
+  display: none;
+}
+
+.images{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.s300{
+  max-width: 100%;
+}
+
+.s400{
+  max-width: 100%;
+}
+
+
+@media (max-width: 1150px) {
+
+  mat-form-field{
+    max-width: 33%;
+  }
+
+}
+
+@media (max-width: 1050px) {
+
+  mat-form-field{
+    max-width: 50%;
+  }
+
+}
+
+@media (max-width: 550px) {
+  .images{
+    justify-content: center;
+  }
+
+  mat-form-field{
+    max-width: 100%;
+  }
+
+}
+

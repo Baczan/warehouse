@@ -1,0 +1,44 @@
+<div *ngIf="!registration_completed">
+  <form [formGroup]="registerFormGroup">
+    <app-input [autocomplete]="'email'" [control]="registerFormGroup.controls['email']" [label]="'E-MAIL'"
+               [type]="'text'">
+    </app-input>
+
+    <app-input [autocomplete]="'new-password'" [control]="registerFormGroup.controls['password']" [label]="'HASŁO'"
+               [type]="'password'">
+    </app-input>
+
+    <app-input [autocomplete]="'new-password'" [control]="registerFormGroup.controls['password_confirmation']" [label]="'POTWIERDŹ HASŁO'"
+               [type]="'password'">
+    </app-input>
+
+    <button (click)="register()" [disabled]="registerFormGroup.invalid && registerFormGroup.touched" class="register"
+            color="primary" mat-raised-button>
+      ZAREJESTRUJ SIĘ
+    </button>
+  </form>
+
+
+  <span>
+  Masz już konto?
+  <a routerLink="/auth/login">
+  Zaloguj się
+  </a>
+</span>
+</div>
+
+<div *ngIf="registration_completed">
+  <div class="registerSuccessfulTitle">
+    Rejestracja zakończona pomyślnie
+  </div>
+  <div class="registerSuccessfulText">
+    Na twój adres e-mail zastał wysłany link aktywacyjny. Użyj go aby móc zacząć korzystać ze swojego konta.
+  </div>
+  <button class="register" color="primary" mat-raised-button routerLink="/auth/login">
+    PRZEJDŹ DO LOGOWANIA
+  </button>
+</div>
+
+
+
+

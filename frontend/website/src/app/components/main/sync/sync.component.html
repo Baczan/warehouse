@@ -1,0 +1,59 @@
+<app-wrapper maxWidth="800px">
+  <div *ngIf="!loading && !imported" class="main">
+    <div class="title">
+      Zaimportuj dane z czytnika
+    </div>
+
+
+    <div class="barcodeWrapper">
+      <qrcode [qrdata]="'%%SpecCode16'" errorCorrectionLevel="H">
+      </qrcode>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>
+          Kody ze skanera
+        </mat-label>
+        <textarea #textAreaElement autofocus cdkTextareaAutosize type="text" autocomplete="off" [formControl]="commandControl" matInput>
+
+      </textarea>
+
+        <mat-error *ngIf="commandControl.hasError('required') && commandControl.touched">
+          Nie może być puste
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+
+    <div class="buttonWrapper">
+      <button (click)="sync()" mat-raised-button color="primary">
+        IMPORTUJ
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="!loading && imported" class="main">
+    <div class="title">
+      Usuń dane z czytnika
+    </div>
+
+    <div class="barcodeWrapper">
+      <qrcode [qrdata]="'%%SpecCode18'" errorCorrectionLevel="H">
+      </qrcode>
+    </div>
+
+    <div class="buttonWrapper buttonDeleted">
+      <button (click)="deleted()" mat-raised-button color="primary">
+        ZAKOŃCZ
+      </button>
+    </div>
+
+  </div>
+
+  <div class="spinnerWrapper" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+</app-wrapper>

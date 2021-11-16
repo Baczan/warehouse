@@ -1,0 +1,19 @@
+<div (click)="navigate()"  class="main" [style.border-bottom]="getBorder()">
+  <div *ngIf="!part.highlightedPartName" class="name">
+    {{part.partName}}
+  </div>
+  <div *ngIf="!!part.highlightedPartName" [innerHTML]="part.highlightedPartName" class="name">
+    {{part.partName}}
+    <div *ngIf="!part.warehouseNumber" class="hr"></div>
+  </div>
+
+  <div *ngIf="!part.warehouseNumber" class="warehouse">
+    <div class="hr"></div>
+  </div>
+
+  <div *ngIf="!!part.warehouseNumber" class="warehouse">
+    {{part.warehouseNumber}}
+  </div>
+
+
+</div>

@@ -1,0 +1,49 @@
+.header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  white-space: nowrap;
+}
+
+.header > button {
+  margin-left: 12px;
+}
+
+.header > a {
+  margin-left: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.main {
+  width: 100%;
+  max-width: 800px;
+}
+
+.spinner-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-drawer-container {
+  height: calc(100% - 56px);
+  box-sizing: border-box;
+}
+
+mat-drawer {
+  width: 256px;
+}
+
+
+.spacer {
+  flex: 1;
+}
+
+.headerButton {
+  margin-right: 16px;
+}

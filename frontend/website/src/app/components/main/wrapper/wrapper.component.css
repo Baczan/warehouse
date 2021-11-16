@@ -1,0 +1,11 @@
+.main{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.innerWrapper{
+  height: 100%;
+  background-color: white;
+  overflow-y: auto;
+}

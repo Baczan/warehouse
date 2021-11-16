@@ -1,0 +1,18 @@
+.main{
+  height: 150px;
+  width: 200px;
+  background-color: rgba(0,0,0,0.06);
+  border-radius: 10px;
+  margin: 16px;
+}
+
+.progressBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: rgba(0,0,0,0.25);
+}
